@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="shortcut icon" href="#" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Assignment</title>
+	<style>
+		*{
+			margin: 0;
+			padding:0;
+			box-sizing: border-box;
+		}
+		body{
+			font-family: sans-serif;
+		}
+		.container{
+			width: 100%;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.item{
+			width:50%;
+			height:50%;
+			border-radius: 7px;
+			text-align: center;
+			background:  #5d6d7e ;
+			padding: 2rem;
+			box-shadow: 4px 4px 10px black;
+		}
+		.inputBox{
+			width:100%;
+			height:15%;
+		}
+		input[type=text]{
+			width: 60%;
+			height:80%;
+			font-size: 1rem;
+			padding:8px 10px;
+			outline: none;
+			border:none;
+			border-radius:5px;
+		}
+		input[type=submit]{
+			width:25%;
+			height:80%;
+			cursor: pointer;
+			font-size:1rem;
+			border-radius:5px;
+			outline:none;
+			border:none;
+		}
+		.heading{
+			width:100%;
+			height:15%;
+			text-align:center;
+		}
+		.heading h1{
+			color: white;
+		}
+		.result-box{
+			width:100%;
+			height:70%;
+			border-radius:10px;
+			box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+			background:white;
+			padding:2rem;
+		}
+		#demo{
+			text-transform: capitalize;
+			font-size:2rem;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="container">
+		<div class="item">
+			<div class="inputBox">
+				<input id="input" type="text" placeholder="say something">
+				<input id="btn1" type="submit" value="Submit">
+			</div>
+			<div class="heading">
+				<h1>Result</h1>
+			</div>
+			<div class="result-box">
+				<h1 id="demo"></h1>
+				<button id="btn2"></button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+
+		//problem solving one fit to miles 
+		let input = document.getElementById('input');
+		const btn = document.getElementById('btn1');
+
+		btn.addEventListener('click',feetToMile);
+
+		
+		function feetToMile(){
+			let fit = input.value;
+			if (fit == '') {
+				return alert('Please Enter Your Feet Number');
+			}
+			let number = parseInt(fit);
+			let int = isNaN(number);
+			if (int || number < 0) {
+				document.getElementById('input').value = '';
+				return alert('Please Enter An Valid Number')
+			}
+			let miles = (number/5280).toFixed(4);
+			if (miles == 0) {
+				return alert(" Please give anouther valid number")
+			}
+			document.getElementById('demo').innerHTML = `${number} feet = ${miles} mile.`;
+			setTimeout(()=>{
+				document.getElementById('input').value = '';
+			},1000)
+		}
+		
+
+
+		//problem solving tow wood calculator
+
+		// let chair = '';
+		// let table =10;
+		// let bat = 5;
+		// function woodCalculator(c,t,b){
+		// 	let chair = parseFloat(c);;
+		// 	let table = parseFloat(t);
+		// 	let bat = parseFloat(b);
+		// 	if (isNaN(chair)) {
+		// 		console.log ("Chair input is invalid !");
+		// 		chair = 0;
+		// 	}
+		// 	if (isNaN(table)) {
+		// 		console.log ("Table input is invalid !");
+		// 		table = 0;
+		// 	}
+		// 	if (isNaN(bat)) {
+		// 		console.log ("Bat input is invalid !");
+		// 		bat = 0;
+		// 	}
+		// 	let result = Math.round((chair * 1) + (table * 3) + (bat * 5));
+			 
+		// 	return result
+			
+		// }
+		// let result = woodCalculator(chair,table,bat);
+		// console.log(result)
+
+
+		//third problem solution bricks calculator
+
+		// let building = '25';
+
+		// function brickCalculator(building){
+		// 	if (isNaN(parseFloat(building)) || building <= 0) {
+		// 		return "Please Enter a valid building floor"
+		// 	}
+		// 	if (building < 11 && 0 < building) {
+		// 		return (building * 15) * 1000 ;
+		// 	}
+		// 	if (building < 21 && 10 < building) {
+		// 		return (building * 12) * 1000;
+		// 	}
+		// 	if (building > 20) {
+		// 		return (building * 10)*1000 ;
+		// 	}
+		// }
+		// console.log(brickCalculator(building));
+
+		//problem solving 3 finding smallest element from array
+
+		// let arr = ['cc','kd','d','Pawon','Khawooon','down','bowon','soo','aa'];
+		// let smallest = (a,b)=> a.length <= b.length ? a:b;
+		// console.log(arr.reduce(smallest))
+
+	</script>
+</body>
+</html>
